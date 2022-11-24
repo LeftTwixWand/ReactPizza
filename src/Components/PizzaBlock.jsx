@@ -1,29 +1,37 @@
-function PizzaBlock(props) {
+import React, { useState } from 'react';
+
+function PizzaBlock({ title, price }) {
+  const [pizzaCount, setPizzaCount] = useState(0);
+
+  const onAddPizzaClick = () => {
+    setPizzaCount(pizzaCount + 1);
+  };
+
   return (
-    <div class="pizza-block-wrapper">
-      <div class="pizza-block">
+    <div className="pizza-block-wrapper">
+      <div className="pizza-block">
         <a href="/pizza/7">
           <img
-            class="pizza-block__image"
+            className="pizza-block__image"
             src="https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg"
             alt="Pizza"
           />
-          <h4 class="pizza-block__title">{props.title}</h4>
+          <h4 className="pizza-block__title">{title}</h4>
         </a>
-        <div class="pizza-block__selector">
+        <div className="pizza-block__selector">
           <ul>
-            <li class="active">тонкое</li>
-            <li class="">традиционное</li>
+            <li className="active">тонкое</li>
+            <li className="">традиционное</li>
           </ul>
           <ul>
-            <li class="active">26 см.</li>
-            <li class="">30 см.</li>
-            <li class="">40 см.</li>
+            <li className="active">26 см.</li>
+            <li className="">30 см.</li>
+            <li className="">40 см.</li>
           </ul>
         </div>
-        <div class="pizza-block__bottom">
-          <div class="pizza-block__price">от {props.price} ₽</div>
-          <button class="button button--outline button--add">
+        <div className="pizza-block__bottom">
+          <div className="pizza-block__price">от {price} ₽</div>
+          <button className="button button--outline button--add" onClick={onAddPizzaClick}>
             <svg
               width="12"
               height="12"
@@ -35,7 +43,7 @@ function PizzaBlock(props) {
                 fill="white"></path>
             </svg>
             <span>Добавить</span>
-            <i>2</i>
+            <i>{pizzaCount}</i>
           </button>
         </div>
       </div>

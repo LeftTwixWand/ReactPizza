@@ -1,13 +1,13 @@
 function Categories() {
   return (
-    <div class="categories">
+    <div className="categories">
       <ul>
-        <li class="active">Все</li>
-        <li class="">Мясные</li>
-        <li class="">Вегетарианская</li>
-        <li class="">Гриль</li>
-        <li class="">Острые</li>
-        <li class="">Закрытые</li>
+        <li className="active">Все</li>
+        <li className="">Мясные</li>
+        <li className="">Вегетарианская</li>
+        <li className="">Гриль</li>
+        <li className="">Острые</li>
+        <li className="">Закрытые</li>
       </ul>
     </div>
   );
