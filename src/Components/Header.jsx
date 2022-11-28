@@ -45,7 +45,7 @@ function Header() {
               y1="27"
               y2="20.366"></line>
           </svg>
-          <input className="Search_input__klILD" placeholder="Поиск пиццы..." value="" />
+          <input className="Search_input__klILD" placeholder="Поиск пиццы..." />
         </div>
         <div className="header__cart">
           <a className="button button--cart" href="/cart">
