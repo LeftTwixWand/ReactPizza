@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Categories({ value, onSelectionChanged }) {
-  const categories = ['All', 'Vegeterian', 'Meat', 'Grill', 'Spicy', 'Closed'];
+  const categories = ['All', 'Vegeterian', 'Meat', 'Grill', 'Spicy', 'Specials'];
 
   return (
     <div className="categories">
