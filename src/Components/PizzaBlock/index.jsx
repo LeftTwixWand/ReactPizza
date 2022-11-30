@@ -30,13 +30,13 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
                 key={size}
                 className={activeSize === index ? 'active' : ''}
                 onClick={() => setActiveSize(index)}>
-                {size} см.
+                {size} cm.
               </li>
             ))}
           </ul>
         </div>
         <div className="pizza-block__bottom">
-          <div className="pizza-block__price">от {price} ₽</div>
+          <div className="pizza-block__price">от {price} $</div>
           <button className="button button--outline button--add">
             <svg
               width="12"

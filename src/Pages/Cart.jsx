@@ -32,7 +32,7 @@ const Cart = () => {
                 stroke-linecap="round"
                 stroke-linejoin="round"></path>
             </svg>
-            Корзина
+            Cart
           </h2>
           <div class="cart__clear">
             <svg
@@ -66,7 +66,7 @@ const Cart = () => {
                 stroke-linecap="round"
                 stroke-linejoin="round"></path>
             </svg>
-            <span>Очистить корзину</span>
+            <span>Clear cart</span>
           </div>
         </div>
         <div class="content__items">
@@ -79,8 +79,8 @@ const Cart = () => {
               />
             </div>
             <div class="cart__item-info">
-              <h3>Маргарита</h3>
-              <p>тонкое, 30 см.</p>
+              <h3>Margarita</h3>
+              <p>italian, 30 cm.</p>
             </div>
             <div class="cart__item-count">
               <button class="button button--outline button--circle cart__item-count-minus">
@@ -116,7 +116,7 @@ const Cart = () => {
               </button>
             </div>
             <div class="cart__item-price">
-              <b>900 ₽</b>
+              <b>900 $</b>
             </div>
             <div class="cart__item-remove">
               <div class="button button--outline button--circle">
@@ -145,8 +145,8 @@ const Cart = () => {
               />
             </div>
             <div class="cart__item-info">
-              <h3>Четыре сезона</h3>
-              <p>тонкое, 30 см.</p>
+              <h3>Four cheeses</h3>
+              <p>italian, 30 сm.</p>
             </div>
             <div class="cart__item-count">
               <button
@@ -184,7 +184,7 @@ const Cart = () => {
               </button>
             </div>
             <div class="cart__item-price">
-              <b>395 ₽</b>
+              <b>395 $</b>
             </div>
             <div class="cart__item-remove">
               <div class="button button--outline button--circle">
@@ -209,11 +209,11 @@ const Cart = () => {
           <div class="cart__bottom-details">
             <span>
               {' '}
-              Всего пицц: <b>3 шт.</b>{' '}
+              Total count: <b>3 items</b>{' '}
             </span>
             <span>
               {' '}
-              Сумма заказа: <b>1295 ₽</b>{' '}
+              Total sum: <b>1295 $</b>{' '}
             </span>
           </div>
           <div class="cart__bottom-buttons">
@@ -231,10 +231,10 @@ const Cart = () => {
                   stroke-linecap="round"
                   stroke-linejoin="round"></path>
               </svg>
-              <span>Вернуться назад</span>
+              <span>Main page</span>
             </Link>
             <div class="button pay-btn">
-              <span>Оплатить сейчас</span>
+              <span>Pay now</span>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ const NotFoundBlock = () => {
       <h1>
         <span>😟</span>
         <br />
-        Page is not founded :(
+        Page is not found :(
       </h1>
       <p className={styles.description}>Sorry, this page doesn't exist.</p>
     </div>

@@ -8,9 +8,17 @@ import Skeleton from '../Components/PizzaBlock/Skeleton';
 const Home = () => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [categoryId, setCategoryId] = React.useState(0);
+  const [sortType, setSortType] = React.useState({ name: 'Name', sortProperty: 'title' });
 
   React.useEffect(() => {
-    fetch('https://mockapi.io/items')
+    setIsLoading(true);
+
+    const category = categoryId > 0 ? `category=${categoryId}` : '';
+    const sortBy = sortType.sortProperty.replace('-', '');
+    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+
+    fetch(`https://mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`)
       .then((response) => response.json())
       .then((array) => {
         setItems(array);
@@ -18,15 +26,15 @@ const Home = () => {
       });
 
     window.scrollTo(0, 0);
-  }, []);
+  }, [categoryId, sortType]);
 
   return (
     <div className="container">
       <div className="content__top">
-        <Categories />
-        <Sort />
+        <Categories value={categoryId} onSelectionChanged={(id) => setCategoryId(id)} />
+        <Sort value={sortType} onSelectionChanged={(id) => setSortType(id)} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
         {isLoading
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
