@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 
 import Sort from '../Components/Sort';
 import Categories from '../Components/Categories';
@@ -14,8 +16,9 @@ const Home = () => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const { searchValue } = React.useContext(SearchContext);
-  const { categoryId, sort } = useSelector((state) => state.filter);
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
+
+  const onChangePage = (number) => dispatch(setCurrentPage(number));
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -25,12 +28,12 @@ const Home = () => {
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
     const search = searchValue ? `&search=${searchValue}` : '';
 
-    fetch(
-      `https://mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`,
-    )
-      .then((response) => response.json())
-      .then((array) => {
-        setItems(array);
+    axios
+      .get(
+        `https://mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`,
+      )
+      .then((resposne) => {
+        setItems(resposne.data);
         setIsLoading(false);
       });
 
@@ -54,7 +57,7 @@ const Home = () => {
 
       <div className="content__items">{isLoading ? skeletons : pizzas}</div>
 
-      <Pagination onPageChanged={(number) => setCurrentPage(number + 1)} />
+      <Pagination currentPage={currentPage} onPageChanged={onChangePage} />
     </div>
   );
 };
